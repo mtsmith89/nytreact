@@ -62,7 +62,7 @@ export default class Articles extends Component {
     }`;
     let key = `&api-key=33c676fd7fd14e90a532f9698ab4dd4a`;
 
-    if (topic.indexxOf(" ") >= 0) {
+    if (topic.indexOf(" ") >= 0) {
       topic = topic.replace(/\s/g, "+");
     }
     if (topic) {

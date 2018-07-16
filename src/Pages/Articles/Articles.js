@@ -3,7 +3,7 @@ import API from "../../utils/API";
 import { Article } from "../../components/Article";
 import Jumbotron from "../../components/Jumbotron";
 import { H1, H3, H4 } from "../../components/Headings";
-import { Container, Row, Col } from "../../componennts/Grid";
+import { Container, Row, Col } from "../../components/Grid";
 import { Panel, PanelHeading, PanelBody } from "../../components/Panel";
 import { Form, Input, FormBtn, FormGroup, Label } from "../../components/Form";
 
@@ -76,7 +76,7 @@ export default class Articles extends Component {
     }
     queryUrl += key;
 
-    API.queryNYT(queryURL)
+    API.queryNYT(queryUrl)
       .then(results => {
         this.setState(
           {

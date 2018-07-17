@@ -5,8 +5,8 @@ const articleSchema = new Schema({
   title: { type: String, required: true },
   url: { type: String, required: true },
   saved: { type: Boolean, default: false },
-  summary: {type: String, required: false},
+  summary: { type: String, required: false },
   date: { type: Date, required: true }
 });
 
-const Article = module.exports = mongoose.model("Article", articleSchema);
+const Article = (module.exports = mongoose.model("Article", articleSchema));

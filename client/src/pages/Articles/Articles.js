@@ -69,8 +69,6 @@ export default class Articles extends Component {
     let queryUrl = `https://api.nytimes.com/svc/search/v2/articlesearch.json?sort=newest&page=${this.state.page}`
     let key = `&api-key=33c676fd7fd14e90a532f9698ab4dd4a`
 
-    //removing spaces and building the query url conditionally
-    //based on presence of optional search terms
     if(topic.indexOf(' ')>=0){
       topic = topic.replace(/\s/g, '+');
     }
@@ -85,14 +83,10 @@ export default class Articles extends Component {
     }
     queryUrl+=key;
 
-    //calling the API
     API
       .queryNYT(queryUrl)
       .then(results => {
-          //concatenating new results to the current state of results.  If empty will just show results,
-          //but if search was done to get more, it shows all results.  Also stores current search terms
-          //for conditional above, and sets the noResults flag for conditional rendering of components below
-          this.setState({
+           this.setState({
             results: [...this.state.results, ...results.data.response.docs],
             previousSearch: query,
             topic: '',
@@ -105,11 +99,9 @@ export default class Articles extends Component {
       .catch(err=> console.log(err))
   }
 
-  //function that is called when user clicks the get more results button
-  getMoreResults = () => {
+   getMoreResults = () => {
     let { topic, eYear, sYear} = this.state.previousSearch;
     let query = { topic, eYear, sYear }
-    //increments page number for search and then runs query
     let page = this.state.page;
     page++
     this.setState({page: page}, function (){
@@ -123,8 +115,8 @@ export default class Articles extends Component {
         <Row>
           <Col size="sm-10" offset='sm-1'>
             <Jumbotron>
-              <H1 className='page-header text-center'>New York Times Article Searcher</H1>
-              <H4 className='text-center'>Search for and save articles of interest</H4>
+              <H1 className='page-header text-center'>New York Times - Article Search</H1>
+              <H4 className='text-center'>Search for and save articles</H4>
             </Jumbotron>
             <Panel>
               <PanelHeading>

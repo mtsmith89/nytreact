@@ -1,3 +1,5 @@
-import React from "react";
+import React from 'react';
 
-export const H4 = props => <h4 {...props}>{props.children}</h4>;
+export const H4 = props => (
+  <h4 {...props}>{props.children}</h4>
+)

@@ -1,19 +1,20 @@
 import axios from "axios";
 
+//abstracted API methods
 export default {
-  getArticles: () => {
+  getArticles: function() {
     return axios.get("/api/articles");
   },
-  getArticle: id => {
+  getArticle: function(id) {
     return axios.get("/api/articles/" + id);
   },
-  deleteArticle: id => {
-    return axios.get("/api/articles/" + id);
+  deleteArticle: function(id) {
+    return axios.delete("/api/articles/" + id);
   },
-  saveArticle: articleData => {
+  saveArticle: function(articleData) {
     return axios.post("/api/articles", articleData);
   },
-  queryNYT: queryUrl => {
+  queryNYT: function (queryUrl) {
     return axios.get(queryUrl);
   }
 };
